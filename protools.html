@@ -55,69 +55,72 @@
         </nav>
     </header>
 
-    <main class="container mt-5">
-        <!-- Filter Section -->
-        <div class="box">
-            <div class="field is-grouped is-grouped-centered">
-                <div class="control">
-                    <div class="select">
-                        <select id="filterSelect">
-                            <option value="all">All</option>
-                            <option value="cookies">Top Cookies</option>
-                            <option value="players">Top Players</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="control">
-                    <input class="input" id="keywordInput" type="text" placeholder="Search by house name">
-                </div>
-                <div class="control">
-                    <button class="button is-primary" id="searchButton">Search</button>
-                </div>
+    <main class="container mt-5 is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+        <section class="section">
+            <div class="container">
+              <h1 class="title">Protools Commands</h1>
+              <table class="table is-striped is-hoverable is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>//</td>
+                    <td>Gives you the selection tool</td>
+                  </tr>
+                  <tr>
+                    <td>/pos1, /posa</td>
+                    <td>Sets the point A of the selection to your location</td>
+                  </tr>
+                  <tr>
+                    <td>/pos2, /posb</td>
+                    <td>Sets the point B of the selection to your location</td>
+                  </tr>
+                  <tr>
+                    <td>/set</td>
+                    <td>Sets the selected area to a certain block type</td>
+                  </tr>
+                  <tr>
+                    <td>/fill</td>
+                    <td>Fills an area with the selected block type</td>
+                  </tr>
+                  <tr>
+                    <td>/walls</td>
+                    <td>Sets a wall around the selected area</td>
+                  </tr>
+                  <tr>
+                    <td>/wireframe</td>
+                    <td>Outlines the selected region with the given block type</td>
+                  </tr>
+                  <tr>
+                    <td>/cut</td>
+                    <td>Cuts the selected area (sets it to air)</td>
+                  </tr>
+                  <tr>
+                    <td>/copy</td>
+                    <td>Copies the selected area</td>
+                  </tr>
+                  <tr>
+                    <td>/paste</td>
+                    <td>Pastes the copied area</td>
+                  </tr>
+                  <tr>
+                    <td>/undo</td>
+                    <td>Undoes the last action</td>
+                  </tr>
+                  <tr>
+                    <td>/replace &lt;block&gt; &lt;block&gt;</td>
+                    <td>Replaces the given block type in the selected area with another block</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-        </div>
-
-        <!-- Results Section -->
-        <table id="resultsTable" class="table is-striped is-bordered is-narrow">
-            <thead>
-                <tr>
-                    <th>Player Name</th>
-                    <th>House Name</th>
-                    <th>Cookies</th>
-                    <th>Player Count</th>
-                </tr>
-            </thead>
-            <tbody id="resultsBody">
-                <!-- Search results will be displayed here -->
-            </tbody>
-        </table>
-
-        <!-- Pagination Controls -->
-        <div class="pagination" id="paginationControls">
-            <p id="pageIndicator" class="has-text-centered is-size-5"></p>
-            <div id="prev-next-buttons">
-                <button id="prevBtn" class="button is-primary">Previous</button>
-                <button id="nextBtn" class="button is-primary">Next</button>
-            </div>
-        </div>
-
-        <!-- Modal for showing timeout warning -->
-        <div id="timeoutModal" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <p id="timeoutMessage" class="has-text-centered is-size-5">Please wait <span id="timeRemaining"></span> seconds before making another request.</p>
-                </div>
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-        </div>
+          </section>
     </main>
 
     <footer></footer>
-
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="./js/api-request.js"></script>
-    <script type="module" src="./js/config.js"></script>
 </body>
 </html>

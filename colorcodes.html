@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypixel Housing Browser</title>
+    <link rel="stylesheet" href="css/custom-style.css">
+    <link rel="stylesheet" href="css/color-codes.css">
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar pt-1 pb-1 is-primary" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="images/door_logo.png" alt="Minecraft 2d door" height="80" width="">
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+
+                    <a class="navbar-item" href="index.html">Housing Browser</a>
+                    <a class="navbar-item" href="colorcodes.html">Colorcodes</a>
+                    <a class="navbar-item" href="protools.html">Protools</a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">More</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="housing-mods.html">Housing Mods</a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="https://github.com/Kalbskinder/HypixelHousingBrowser" target="_blank">Github</a>
+                            <a class="navbar-item" href="https://discord.gg/creators-alliance-966661858155196466" target="_blank">Discord</a>
+                            <hr class="navbar-divider">
+                            <div class="navbar-item">Version 1.0.2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-white"><strong>Join the Discord</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5 is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+        <img src="images/colorcodes.webp" alt="A list of all Minecraft Colorcodes" class="my-4">
+        <section class="section">
+            <div>
+                <h1 class="title">Minecraft Color Code Table</h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Color Code</th>
+                            <th>Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>&0</td>
+                            <td class="color-cell black">Black</td>
+                        </tr>
+                        <tr>
+                            <td>&1</td>
+                            <td class="color-cell dark-blue">Dark Blue</td>
+                        </tr>
+                        <tr>
+                            <td>&2</td>
+                            <td class="color-cell dark-green">Dark Green</td>
+                        </tr>
+                        <tr>
+                            <td>&3</td>
+                            <td class="color-cell dark-aqua">Dark Aqua</td>
+                        </tr>
+                        <tr>
+                            <td>&4</td>
+                            <td class="color-cell dark-red">Dark Red</td>
+                        </tr>
+                        <tr>
+                            <td>&5</td>
+                            <td class="color-cell purple">Purple</td>
+                        </tr>
+                        <tr>
+                            <td>&6</td>
+                            <td class="color-cell gold">Gold</td>
+                        </tr>
+                        <tr>
+                            <td>&7</td>
+                            <td class="color-cell gray">Gray</td>
+                        </tr>
+                        <tr>
+                            <td>&8</td>
+                            <td class="color-cell dark-gray">Dark Gray</td>
+                        </tr>
+                        <tr>
+                            <td>&9</td>
+                            <td class="color-cell blue">Blue</td>
+                        </tr>
+                        <tr>
+                            <td>&a</td>
+                            <td class="color-cell green">Green</td>
+                        </tr>
+                        <tr>
+                            <td>&b</td>
+                            <td class="color-cell aqua">Aqua</td>
+                        </tr>
+                        <tr>
+                            <td>&c</td>
+                            <td class="color-cell red">Red</td>
+                        </tr>
+                        <tr>
+                            <td>&d</td>
+                            <td class="color-cell pink">Pink</td>
+                        </tr>
+                        <tr>
+                            <td>&e</td>
+                            <td class="color-cell yellow">Yellow</td>
+                        </tr>
+                        <tr>
+                            <td>&f</td>
+                            <td class="color-cell white">White</td>
+                        </tr>
+                        <tr>
+                            <td>&l</td>
+                            <td class="color-cell white bold">Bold</td>
+                        </tr>
+                        <tr>
+                            <td>&m</td>
+                            <td class="color-cell white strikethrough">Strikethrough</td>
+                        </tr>
+                        <tr>
+                            <td>&n</td>
+                            <td class="color-cell white underline">Underline</td>
+                        </tr>
+                        <tr>
+                            <td>&o</td>
+                            <td class="color-cell white italic">Italic</td>
+                        </tr>
+                        <tr>
+                            <td>&r</td>
+                            <td class="color-cell white">Reset</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Modal structure -->
+        <div id="popupModal" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-content">
+                <div class="box">
+                    <p id="modalMessage"></p>
+                    <button class="button is-link" id="closeModal">Close</button>
+                </div>
+            </div>
+            <button class="modal-close is-large" aria-label="close"></button>
+        </div>
+    </main>
+
+    <footer></footer>
+
+    <script src="js/copy-color-codes.js"></script>
+</body>
+</html>
