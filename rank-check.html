@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hypixel Rank Checker</title>
+    <link rel="stylesheet" href="css/custom-style.css">
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar pt-1 pb-1 is-primary" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    <img src="images/door_logo.png" alt="Minecraft 2d door" height="80" width="">
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item" href="#filterSelect">Housing Browser</a>
+                    <a class="navbar-item" href="colorcodes.html">Colorcodes</a>
+                    <a class="navbar-item" href="protools.html">Protools</a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">More</a>
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="housing-mods.html">Housing Mods</a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="https://github.com/Kalbskinder/HypixelHousingBrowser" target="_blank">Github</a>
+                            <a class="navbar-item" href="https://discord.gg/creators-alliance-966661858155196466" target="_blank">Discord</a>
+                            <hr class="navbar-divider">
+                            <div class="navbar-item">Version 1.0.2</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="buttons">
+                            <a class="button is-white"><strong>Join the Discord</strong></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5 is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+        <h1 class="title">Hypixel Rank Checker</h1>
+
+        <!-- Input for player name -->
+        <div class="field has-addons">
+            <div class="control">
+                <input class="input" id="playerNameInput" type="text" placeholder="Enter Minecraft username">
+            </div>
+            <div class="control">
+                <button class="button is-primary" id="searchButton">Check Rank</button>
+            </div>
+        </div>
+
+        <!-- Rank result and image -->
+        <div class="box mt-3" id="resultBox" style="display: none;">
+            <p id="rankResult"></p>
+            <img id="rankImage" src="" alt="Rank Image" style="max-width: 200px;">
+        </div>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="js/rank-checker.js"></script> <!-- Link to JavaScript file -->
+</body>
+
+</html>

@@ -1,26 +1,26 @@
-const API_KEY = 'HYPXIEL_API_KEY'; // Hypixel API key
+const API_KEY = '2345f3d0-fe14-426a-b9cf-63b48348b5ed'; // Hypixel API key
 const mojangAPIBaseUrl = "https://api.mojang.com/users/profiles/minecraft/";
 
-let houses = []; // Array for house data
-let currentPage = 0; // Current page
-const resultsPerPage = 10; // Results per page
-const playerNameCache = {}; // Cache for player names
+let houses = []; // Array für Hausdaten
+let currentPage = 0; // Aktuelle Seite
+const resultsPerPage = 10; // Ergebnisse pro Seite
+const playerNameCache = {}; // Cache für Spielernamen
 
-// Function to fetch house data
+// Funktion zum Abrufen von Hausdaten
 async function fetchHouseData() {
     try {
         const response = await fetch(`https://api.hypixel.net/v2/housing/active?key=${API_KEY}`);
-        const data = await response.json(); // Parse JSON
-        houses = data; // Save house data
-        displayResults(); // Display results
+        const data = await response.json(); // JSON parsen
+        houses = data; // Hausdaten speichern
+        displayResults(); // Ergebnisse anzeigen
     } catch (error) {
         console.error('Error fetching house data:', error);
     }
 }
 
-// Function to fetch player name
+// Funktion zum Abrufen des Spielernamens
 async function getPlayerNameFromUUID(uuid) {
-    // Check cache
+    // Cache prüfen
     if (playerNameCache[uuid]) {
         return playerNameCache[uuid];
     }
@@ -32,10 +32,10 @@ async function getPlayerNameFromUUID(uuid) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = await response.json(); // Parse JSON response
+        const data = await response.json(); // JSON-Antwort parsen
         const name = data.name;
 
-        // Cache the name
+        // Namen cachen
         playerNameCache[uuid] = name;
         return name;
     } catch (error) {
@@ -44,12 +44,12 @@ async function getPlayerNameFromUUID(uuid) {
     }
 }
 
-// Function to display results
+// Funktion zum Anzeigen der Ergebnisse
 async function displayResults() {
     const resultsBody = document.getElementById('resultsBody');
-    resultsBody.innerHTML = ''; // Clear previous results
+    resultsBody.innerHTML = ''; // Vorherige Ergebnisse löschen
 
-    // Paginate results
+    // Ergebnisse paginieren
     const start = currentPage * resultsPerPage;
     const end = start + resultsPerPage;
     const paginatedHouses = houses.slice(start, end);
@@ -66,7 +66,7 @@ async function displayResults() {
 
     const results = await Promise.all(promises);
 
-    // Display results in the table
+    // Ergebnisse in der Tabelle anzeigen
     results.forEach(result => {
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -78,10 +78,10 @@ async function displayResults() {
         resultsBody.appendChild(row);
     });
 
-    updatePaginationControls(); // Update pagination controls
+    updatePaginationControls(); // Paginierungssteuerungen aktualisieren
 }
 
-// Function to update pagination controls
+// Funktion zur Aktualisierung der Paginierungssteuerungen
 function updatePaginationControls() {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -94,7 +94,7 @@ function updatePaginationControls() {
     pageIndicator.textContent = `Page ${currentPage + 1} of ${totalPages}`;
 }
 
-// Event listener for pagination
+// Event-Listener für die Paginierung
 document.getElementById('prevBtn').addEventListener('click', () => {
     if (currentPage > 0) {
         currentPage--;
@@ -110,21 +110,21 @@ document.getElementById('nextBtn').addEventListener('click', () => {
     }
 });
 
-// Event listener for filtering
+// Event-Listener für die Filterfunktion
 document.getElementById('filterSelect').addEventListener('change', () => {
     const selectedFilter = document.getElementById('filterSelect').value;
     if (selectedFilter === 'cookies') {
-        // Sort by cookies
+        // Nach Cookies sortieren
         houses.sort((a, b) => b.cookies.current - a.cookies.current);
     } else if (selectedFilter === 'players') {
-        // Sort by number of players
+        // Nach Spieleranzahl sortieren
         houses.sort((a, b) => b.players - a.players);
     }
-    currentPage = 0; // Reset to the first page
+    currentPage = 0; // Zurück zur ersten Seite
     displayResults();
 });
 
-// Event listener for search functionality
+// Event-Listener für die Suchfunktion
 document.getElementById('searchButton').addEventListener('click', () => {
     const keyword = document.getElementById('keywordInput').value.toLowerCase();
     const filteredHouses = houses.filter(house => {
@@ -136,5 +136,5 @@ document.getElementById('searchButton').addEventListener('click', () => {
     displayResults();
 });
 
-// Fetch house data when the page loads
+// Hausdaten beim Laden der Seite abrufen
 window.onload = fetchHouseData;
