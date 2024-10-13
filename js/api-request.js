@@ -1,4 +1,4 @@
-const API_KEY = '2345f3d0-fe14-426a-b9cf-63b48348b5ed'; // Hypixel API key
+const API_KEY = ''; // Hypixel API key
 const mojangAPIBaseUrl = "https://api.mojang.com/users/profiles/minecraft/";
 
 let houses = []; // Array für Hausdaten

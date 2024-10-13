@@ -1,4 +1,4 @@
-const API_KEY = '2345f3d0-fe14-426a-b9cf-63b48348b5ed'; // Hypixel API key
+const API_KEY = ''; // Hypixel API key
 
 // Function to fetch player rank from Hypixel API
 async function getPlayerRank(playerName) {
