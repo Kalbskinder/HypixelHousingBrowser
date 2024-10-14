@@ -49,11 +49,11 @@ tbody tr:hover {
 .blue { background-color: #5555FF; }
 .green { background-color: #55FF55; color: #000000;}
 .aqua { background-color: #55FFFF; color: #000000;}
-.red { background-color: #FF5555; }
-.pink { background-color: #FF55FF; }
+.red { background-color: #FF5555; color: #000000; }
+.pink { background-color: #FF55FF; color: #000000; }
 .yellow { background-color: #FFFF55; color: #000000;}
 .white { background-color: #FFFFFF; color: #000000; }
-.bols { font-weight: bold; }
+.bold { font-weight: bold; }
 .strikethrough { text-decoration: line-through; }
 .underline { text-decoration: underline; }
 .italic { font-style: italic; }

@@ -55,7 +55,14 @@
         </nav>
     </header>
 
-    <main class="container mt-5">
+    <main class="container mt-5 is-flex is-flex-direction-column is-justify-content-center">
+        <div id="rateLimitModal" class="modal">
+            <div class="modal-content">
+                <div class="box">
+                    <p id="modalMessage" class="has-text-centered is-size-5">You have exceeded the API call limit. Please wait <span id="timeRemaining">60</span> seconds before trying again.</p>
+                </div>
+            </div>
+        </div>           
         <!-- Filter Section -->
         <div class="box">
             <div class="field is-grouped is-grouped-centered">
@@ -81,7 +88,6 @@
         <table id="resultsTable" class="table is-striped is-bordered is-narrow">
             <thead>
                 <tr>
-                    <th>Player Name</th>
                     <th>House Name</th>
                     <th>Cookies</th>
                     <th>Player Count</th>
@@ -101,23 +107,10 @@
             </div>
         </div>
 
-        <!-- Modal for showing timeout warning -->
-        <div id="timeoutModal" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-                <div class="box">
-                    <p id="timeoutMessage" class="has-text-centered is-size-5">Please wait <span id="timeRemaining"></span> seconds before making another request.</p>
-                </div>
-            </div>
-            <button class="modal-close is-large" aria-label="close"></button>
-        </div>
-    </main>
-
     <footer></footer>
 
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="./js/api-request.js"></script>
-    <script type="module" src="./js/config.js"></script>
+    <script type="module" src="./js/api-request.js" defer></script>
 </body>
 </html>
