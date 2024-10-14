@@ -36,3 +36,8 @@ th {
 .navbar-burger {
     --bulma-navbar-burger-color: white;
 }
+
+.navbar-end .button:hover { 
+    background-color: #5865F2; 
+    color: #fff;
+}
